@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boost Sport – Thể Thao Đỉnh Cao</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg style="display: none" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="ico-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </symbol>
+      <symbol id="ico-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <path d="M16 10a4 4 0 0 1-8 0" />
+      </symbol>
+    </svg>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+      <div class="nav-inner">
+        <a href="#" class="logo">BOOST<span>SPORT</span></a>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#" class="nav-link active" data-vi="Trang chủ" data-en="Home">Trang chủ</a>
+          <a href="#products" class="nav-link" data-vi="Giày" data-en="Shoes">Giày</a>
+          <a href="#products" class="nav-link" data-vi="Dép" data-en="Sandals">Dép</a>
+          <a href="#products" class="nav-link" data-vi="Quần áo" data-en="Apparel">Quần áo</a>
+          <a href="#products" class="nav-link" data-vi="Phụ kiện" data-en="Accessories">Phụ kiện</a>
+          <a href="#voucher" class="nav-link nav-voucher" data-vi="Voucher" data-en="Voucher">Voucher 🔥</a>
+          <a href="#contact" class="nav-link" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+        </nav>
+
+        <div class="nav-actions">
+          <div class="search-wrap">
+            <input type="text" class="search-input" id="searchInput" placeholder="Tìm kiếm..." />
+            <button class="search-btn" id="searchToggle">
+              <svg width="18" height="18"><use href="#ico-search" /></svg>
+            </button>
+          </div>
+
+          <button class="cart-btn" id="cartBtn">
+            <svg width="20" height="20"><use href="#ico-cart" /></svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="vi">VI</button>
+            <span>/</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+
+          <div class="user-area" id="userArea">
+            <a href="./dang_ki/dangki_dangnhap.html" class="btn-login" id="loginBtn">Đăng nhập</a>
+            <div id="userDropdown" style="display: none; position: relative">
+              <button class="user-avatar-btn" onclick="toggleUserMenu()">
+                <div class="avatar" id="userInitial">A</div>
+                <span id="userName">User</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+              </button>
+              <div class="user-menu" id="userMenu" style="display: none">
+                <div class="user-menu-info">
+                  <div class="avatar" style="width: 40px; height: 40px; font-size: 1rem" id="userInitial2">A</div>
+                  <div>
+                    <strong id="userMenuName">User</strong>
+                    <small id="userMenuEmail" style="display: block; color: #888; font-size: 11px"></small>
+                  </div>
+                </div>
+                <hr style="border: none; border-top: 1px solid #eee; margin: 8px 0" />
+                <button class="user-menu-item" onclick="logoutUser()">🚪 Đăng xuất</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <canvas class="hero-canvas" id="heroCanvas"></canvas>
+      <div class="hero-content">
+        <p class="hero-eyebrow">NEW SEASON 2026</p>
+        <h1 class="hero-title">
+          <span class="hero-title-line">MOVE</span>
+          <em class="hero-title-accent">FASTER.</em>
+          <span class="hero-title-line">GO FURTHER.</span>
+        </h1>
+        <p class="hero-sub" data-vi="Bộ sưu tập mới nhất từ Nike, Adidas, Puma & hơn 20 thương hiệu hàng đầu." data-en="Latest collection from Nike, Adidas, Puma & 20+ top brands.">Bộ sưu tập mới nhất từ Nike, Adidas, Puma & hơn 20 thương hiệu hàng đầu.</p>
+        <div class="hero-ctas">
+          <a href="#products" class="btn-primary" data-vi="Mua ngay" data-en="Shop Now">Mua ngay</a>
+          <a href="#brands" class="btn-ghost" data-vi="Xem thương hiệu" data-en="Explore Brands">Xem thương hiệu</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">500+</span><span class="stat-label" data-vi="Sản phẩm" data-en="Products">Sản phẩm</span></div>
+          <div class="stat"><span class="stat-num">20+</span><span class="stat-label" data-vi="Thương hiệu" data-en="Brands">Thương hiệu</span></div>
+          <div class="stat"><span class="stat-num">50K+</span><span class="stat-label" data-vi="Khách hàng" data-en="Customers">Khách hàng</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-shoe-wrap">
+          <div class="hero-shoe-glow"></div>
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Featured shoe" class="hero-shoe" onerror="imgErr(this, '500x400', 'BOOST+SPORT')" />
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- FLASH SALE BANNER -->
+    <section class="flash-banner">
+      <div class="flash-inner">
+        <div class="flash-tag">⚡ FLASH SALE</div>
+        <p data-vi="Giảm đến 50% cho đơn hàng đầu tiên – Kết thúc sau:" data-en="Up to 50% off your first order – Ends in:">Giảm đến 50% cho đơn hàng đầu tiên – Kết thúc sau:</p>
+        <div class="countdown" id="countdown">
+          <div class="cd-box"><span id="cd-h">08</span><small>GIỜ</small></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-box"><span id="cd-m">45</span><small>PHÚT</small></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-box"><span id="cd-s">30</span><small>GIÂY</small></div>
+        </div>
+        <a href="#products" class="btn-flash" data-vi="Xem ngay" data-en="Shop Now">Xem ngay</a>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">DANH MỤC</p>
+          <h2 class="section-title" data-vi="Khám phá danh mục" data-en="Explore Categories">Khám phá danh mục</h2>
+        </div>
+        <div class="cat-grid">
+          <div class="cat-card cat-large" onclick="filterCategory('giay')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Giày" onerror="imgErr(this, '600x400', 'GIÀY')" />
+            <div class="cat-overlay">
+              <h3 data-vi="Giày thể thao" data-en="Sports Shoes">Giày thể thao</h3>
+              <p>200+ sản phẩm</p>
+            </div>
+          </div>
+          <div class="cat-card" onclick="filterCategory('dep')">
+            <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&q=80" alt="Dép" onerror="imgErr(this, '400x300', 'DÉP')" />
+            <div class="cat-overlay">
+              <h3 data-vi="Dép thể thao" data-en="Sandals">Dép thể thao</h3>
+              <p>80+ sản phẩm</p>
+            </div>
+          </div>
+          <div class="cat-card" onclick="filterCategory('quan-ao')">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80" alt="Quần áo" onerror="imgErr(this, '400x300', 'QUẦN+ÁO')" />
+            <div class="cat-overlay">
+              <h3 data-vi="Quần áo" data-en="Apparel">Quần áo</h3>
+              <p>150+ sản phẩm</p>
+            </div>
+          </div>
+          <div class="cat-card" onclick="filterCategory('phu-kien')">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80" alt="Phụ kiện" onerror="imgErr(this, '400x300', 'PHỤ+KIỆN')" />
+            <div class="cat-overlay">
+              <h3 data-vi="Phụ kiện" data-en="Accessories">Phụ kiện</h3>
+              <p>70+ sản phẩm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANDS -->
+    <section class="brands" id="brands">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">ĐỐI TÁC</p>
+          <h2 class="section-title" data-vi="Thương hiệu nổi bật" data-en="Featured Brands">Thương hiệu nổi bật</h2>
+        </div>
+        <div class="brand-strip">
+          <div class="brand-track">
+            <div class="brand-item" onclick="filterBrand('nike')">Nike</div>
+            <div class="brand-item" onclick="filterBrand('adidas')">Adidas</div>
+            <div class="brand-item" onclick="filterBrand('puma')">Puma</div>
+            <div class="brand-item" onclick="filterBrand('converse')">Converse</div>
+            <div class="brand-item" onclick="filterBrand('new-balance')">New Balance</div>
+            <div class="brand-item" onclick="filterBrand('vans')">Vans</div>
+            <div class="brand-item" onclick="filterBrand('under-armour')">Under Armour</div>
+            <div class="brand-item" onclick="filterBrand('reebok')">Reebok</div>
+            <!-- duplicate for infinite scroll -->
+            <div class="brand-item" onclick="filterBrand('nike')">Nike</div>
+            <div class="brand-item" onclick="filterBrand('adidas')">Adidas</div>
+            <div class="brand-item" onclick="filterBrand('puma')">Puma</div>
+            <div class="brand-item" onclick="filterBrand('converse')">Converse</div>
+            <div class="brand-item" onclick="filterBrand('new-balance')">New Balance</div>
+            <div class="brand-item" onclick="filterBrand('vans')">Vans</div>
+            <div class="brand-item" onclick="filterBrand('under-armour')">Under Armour</div>
+            <div class="brand-item" onclick="filterBrand('reebok')">Reebok</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">SẢN PHẨM</p>
+          <h2 class="section-title" data-vi="Bộ sưu tập" data-en="Collection">Bộ sưu tập</h2>
+        </div>
+
+        <div class="product-tabs">
+          <button class="tab-btn active" data-tab="hot" data-vi="🔥 Hot Trend" data-en="🔥 Hot Trend">🔥 Hot Trend</button>
+          <button class="tab-btn" data-tab="bestseller" data-vi="⭐ Bán chạy" data-en="⭐ Best Sellers">⭐ Bán chạy</button>
+          <button class="tab-btn" data-tab="sale" data-vi="🏷 Giảm giá" data-en="🏷 On Sale">🏷 Giảm giá</button>
+          <button class="tab-btn" data-tab="new" data-vi="✨ Mới nhất" data-en="✨ New Arrivals">✨ Mới nhất</button>
+        </div>
+
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label data-vi="Thương hiệu" data-en="Brand">Thương hiệu</label>
+            <select id="filterBrand" onchange="applyFilters()">
+              <option value="">Tất cả</option>
+              <option value="nike">Nike</option>
+              <option value="adidas">Adidas</option>
+              <option value="puma">Puma</option>
+              <option value="converse">Converse</option>
+              <option value="new-balance">New Balance</option>
+              <option value="vans">Vans</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label data-vi="Danh mục" data-en="Category">Danh mục</label>
+            <select id="filterCat" onchange="applyFilters()">
+              <option value="">Tất cả</option>
+              <option value="giay">Giày</option>
+              <option value="dep">Dép</option>
+              <option value="quan-ao">Quần áo</option>
+              <option value="phu-kien">Phụ kiện</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label data-vi="Giá tối đa" data-en="Max Price">Giá tối đa</label>
+            <input type="range" id="filterPrice" min="100000" max="5000000" step="100000" value="5000000" oninput="applyFilters()" />
+            <span id="priceLabel">5,000,000đ</span>
+          </div>
+          <div class="filter-group">
+            <label>Size</label>
+            <div class="size-chips" id="sizeChips">
+              <span class="size-chip" data-size="36">36</span>
+              <span class="size-chip" data-size="37">37</span>
+              <span class="size-chip" data-size="38">38</span>
+              <span class="size-chip" data-size="39">39</span>
+              <span class="size-chip" data-size="40">40</span>
+              <span class="size-chip" data-size="41">41</span>
+              <span class="size-chip" data-size="42">42</span>
+              <span class="size-chip" data-size="43">43</span>
+              <span class="size-chip" data-size="44">44</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+        <div class="load-more-wrap">
+          <button class="btn-loadmore" id="loadMoreBtn" onclick="loadMore()" data-vi="Xem thêm sản phẩm" data-en="Load More">Xem thêm sản phẩm</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOUCHER -->
+    <section class="voucher-section" id="voucher">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">ƯU ĐÃI</p>
+          <h2 class="section-title" data-vi="Voucher của bạn" data-en="Your Vouchers">Voucher của bạn</h2>
+        </div>
+        <div class="voucher-grid">
+          <div class="voucher-card">
+            <div class="voucher-left">
+              <span class="voucher-percent">20%</span>
+              <span data-vi="GIẢM" data-en="OFF">GIẢM</span>
+            </div>
+            <div class="voucher-right">
+              <p class="voucher-title" data-vi="Giảm 20% toàn bộ giày Nike" data-en="20% off all Nike shoes">Giảm 20% toàn bộ giày Nike</p>
+              <p class="voucher-code">NIKE20</p>
+              <p class="voucher-exp" data-vi="Hết hạn: 30/06/2025" data-en="Expires: 30/06/2025">Hết hạn: 30/06/2025</p>
+              <button class="btn-copy-voucher" onclick="copyVoucher('NIKE20')">Sao chép</button>
+            </div>
+            <div class="voucher-hole voucher-hole-top"></div>
+            <div class="voucher-hole voucher-hole-bottom"></div>
+          </div>
+          <div class="voucher-card">
+            <div class="voucher-left">
+              <span class="voucher-percent">50K</span>
+              <span data-vi="GIẢM" data-en="OFF">GIẢM</span>
+            </div>
+            <div class="voucher-right">
+              <p class="voucher-title" data-vi="Freeship cho đơn từ 500K" data-en="Free shipping on orders 500K+">Freeship cho đơn từ 500K</p>
+              <p class="voucher-code">FREESHIP</p>
+              <p class="voucher-exp" data-vi="Không giới hạn" data-en="No expiry">Không giới hạn</p>
+              <button class="btn-copy-voucher" onclick="copyVoucher('FREESHIP')">Sao chép</button>
+            </div>
+            <div class="voucher-hole voucher-hole-top"></div>
+            <div class="voucher-hole voucher-hole-bottom"></div>
+          </div>
+          <div class="voucher-card">
+            <div class="voucher-left">
+              <span class="voucher-percent">15%</span>
+              <span data-vi="GIẢM" data-en="OFF">GIẢM</span>
+            </div>
+            <div class="voucher-right">
+              <p class="voucher-title" data-vi="Khách hàng mới – Đơn đầu tiên" data-en="New customers – First order">Khách hàng mới – Đơn đầu tiên</p>
+              <p class="voucher-code">NEWBIE15</p>
+              <p class="voucher-exp" data-vi="Một lần sử dụng" data-en="One-time use">Một lần sử dụng</p>
+              <button class="btn-copy-voucher" onclick="copyVoucher('NEWBIE15')">Sao chép</button>
+            </div>
+            <div class="voucher-hole voucher-hole-top"></div>
+            <div class="voucher-hole voucher-hole-bottom"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p class="section-eyebrow">LIÊN HỆ</p>
+            <h2 class="section-title" data-vi="Chúng tôi luôn sẵn sàng hỗ trợ" data-en="We're Always Here to Help">Chúng tôi luôn sẵn sàng hỗ trợ</h2>
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <strong data-vi="Địa chỉ" data-en="Address">Địa chỉ</strong>
+                  <p>Trần Phú, Hà Đông, Hà Nội</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                  <strong data-vi="Điện thoại" data-en="Phone">Điện thoại</strong>
+                  <p>1234 5678 (Miễn phí)</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div>
+                  <strong>Email</strong>
+                  <p>support@boostsport.vn</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" onsubmit="submitContact(event)">
+            <div class="form-row">
+              <input type="text" placeholder="Họ và tên" required />
+              <input type="email" placeholder="Email" required />
+            </div>
+            <input type="text" placeholder="Tiêu đề" />
+            <textarea placeholder="Nội dung tin nhắn..." rows="5" required></textarea>
+            <button type="submit" class="btn-primary" data-vi="Gửi tin nhắn" data-en="Send Message">Gửi tin nhắn</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="logo">BOOST<span>SPORT</span></a>
+            <p data-vi="Chuyên cung cấp sản phẩm thể thao chính hãng, chất lượng cao." data-en="Premium authentic sportswear from top brands worldwide.">Chuyên cung cấp sản phẩm thể thao chính hãng, chất lượng cao.</p>
+            <div class="social-links">
+              <a href="#" class="social-link">FB</a>
+              <a href="#" class="social-link">IG</a>
+              <a href="#" class="social-link">TT</a>
+              <a href="#" class="social-link">YT</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 data-vi="Sản phẩm" data-en="Products">Sản phẩm</h4>
+            <a href="#" data-vi="Giày thể thao" data-en="Sports Shoes">Giày thể thao</a>
+            <a href="#" data-vi="Dép thể thao" data-en="Sandals">Dép thể thao</a>
+            <a href="#" data-vi="Quần áo" data-en="Apparel">Quần áo</a>
+            <a href="#" data-vi="Phụ kiện" data-en="Accessories">Phụ kiện</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-vi="Hỗ trợ" data-en="Support">Hỗ trợ</h4>
+            <a href="#" data-vi="Hướng dẫn mua hàng" data-en="Buying Guide">Hướng dẫn mua hàng</a>
+            <a href="#" data-vi="Chính sách đổi trả" data-en="Return Policy">Chính sách đổi trả</a>
+            <a href="#" data-vi="Chính sách bảo hành" data-en="Warranty">Chính sách bảo hành</a>
+            <a href="#" data-vi="FAQ" data-en="FAQ">FAQ</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-vi="Đăng ký nhận tin" data-en="Newsletter">Đăng ký nhận tin</h4>
+            <p data-vi="Nhận thông báo về sản phẩm mới và ưu đãi độc quyền." data-en="Get updates on new products and exclusive offers.">Nhận thông báo về sản phẩm mới và ưu đãi độc quyền.</p>
+            <div class="newsletter-form">
+              <input type="email" placeholder="Email của bạn" />
+              <button class="btn-primary" data-vi="Đăng ký" data-en="Subscribe">Đăng ký</button>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Boost Sport. All rights reserved.</p>
+          <div class="payment-icons"><span>VISA</span><span>MC</span><span>MOMO</span><span>VNPAY</span></div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h3 data-vi="Giỏ hàng" data-en="Shopping Cart">Giỏ hàng</h3>
+        <button onclick="closeCart()">✕</button>
+      </div>
+      <div class="cart-body" id="cartBody">
+        <div class="cart-empty" id="cartEmpty">
+          <p data-vi="Giỏ hàng trống" data-en="Your cart is empty">Giỏ hàng trống</p>
+        </div>
+      </div>
+      <div class="cart-footer" id="cartFooter" style="display: none">
+        <div class="cart-total">
+          <span data-vi="Tổng cộng:" data-en="Total:">Tổng cộng:</span>
+          <strong id="cartTotal">0đ</strong>
+        </div>
+        <button class="btn-primary" style="width: 100%" data-vi="Thanh toán" data-en="Checkout">Thanh toán</button>
+      </div>
+    </aside>
+
+    <!-- PRODUCT MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+    <div class="product-modal" id="productModal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-inner" id="modalInner"></div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal-overlay" id="profileOverlay" onclick="closeProfile()"></div>
+    <div class="profile-modal" id="profileModal">
+      <button class="modal-close" onclick="closeProfile()">✕</button>
+      <div class="profile-tabs">
+        <button class="profile-tab active" onclick="showProfileTab('info')">Thông tin cá nhân</button>
+        <button class="profile-tab" onclick="showProfileTab('orders')">Đơn hàng của tôi</button>
+      </div>
+      <div id="infoTab" class="profile-content">
+        <input type="text" placeholder="Họ và tên" class="auth-input" />
+        <input type="text" placeholder="Số điện thoại" class="auth-input" />
+        <input type="text" placeholder="Địa chỉ giao hàng" class="auth-input" />
+        <button class="btn-primary" style="width: 100%">Cập nhật thông tin</button>
+      </div>
+      <div id="ordersTab" class="profile-content" style="display: none">
+        <p>Bạn chưa có đơn hàng nào.</p>
+      </div>
+    </div>
+
+    <div id="adminPanel" style="display: none; padding: 100px 24px">
+      <div class="container">
+        <h2>Quản trị hệ thống</h2>
+        <div class="admin-grid">
+          <button class="btn-primary">Thêm sản phẩm mới</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
+    <script>
+      function imgErr(el, size, text) {
+        el.src = "https://via.placeholder.com/" + size + "/1C1C1E/FF4F00?text=" + text;
+      }
+
+      function initUserState() {
+        try {
+          const raw = localStorage.getItem("adidas_current_user");
+          if (!raw) return;
+          const user = JSON.parse(raw);
+          const name = user.name || user.email || "Người dùng";
+          const initial = name.charAt(0).toUpperCase();
+
+          document.getElementById("loginBtn").style.display = "none";
+          document.getElementById("userDropdown").style.display = "block";
+          document.getElementById("userName").textContent = name.split(" ").pop();
+          document.getElementById("userInitial").textContent = initial;
+          document.getElementById("userInitial2").textContent = initial;
+          document.getElementById("userMenuName").textContent = name;
+          document.getElementById("userMenuEmail").textContent = user.email || "";
+        } catch (e) {}
+      }
+
+      function toggleUserMenu() {
+        const m = document.getElementById("userMenu");
+        m.style.display = m.style.display === "none" ? "block" : "none";
+      }
+
+      function logoutUser() {
+        localStorage.removeItem("adidas_current_user");
+        location.reload();
+      }
+
+      document.addEventListener("click", function (e) {
+        const d = document.getElementById("userDropdown");
+        const m = document.getElementById("userMenu");
+        if (d && m && !d.contains(e.target)) m.style.display = "none";
+      });
+
+      initUserState();
+    </script>
+    <script src="products.js"></script>
+  </body>
+</html>
