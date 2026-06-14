@@ -73,6 +73,9 @@
                   </div>
                 </div>
                 <hr style="border: none; border-top: 1px solid #eee; margin: 8px 0" />
+                <button class="user-menu-item" onclick="openProfile()">👤 Tài khoản của tôi</button>
+                <button class="user-menu-item" onclick="openProfile('orders')">📦 Đơn hàng của tôi</button>
+                <hr style="border: none; border-top: 1px solid #eee; margin: 8px 0" />
                 <button class="user-menu-item" onclick="logoutUser()">🚪 Đăng xuất</button>
               </div>
             </div>
@@ -428,9 +431,27 @@
           <span data-vi="Tổng cộng:" data-en="Total:">Tổng cộng:</span>
           <strong id="cartTotal">0đ</strong>
         </div>
-        <button class="btn-primary" style="width: 100%" data-vi="Thanh toán" data-en="Checkout">Thanh toán</button>
+        <button class="btn-primary" style="width: 100%" onclick="openCheckout()" data-vi="Thanh toán" data-en="Checkout">Thanh toán</button>
       </div>
     </aside>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+    <div class="login-modal" id="checkoutModal">
+      <button class="modal-close" onclick="closeCheckout()">✕</button>
+      <h3 style="font-family: &quot;Oswald&quot;, sans-serif; font-size: 1.4rem; margin-bottom: 20px" data-vi="Thanh toán đơn hàng" data-en="Checkout">Thanh toán đơn hàng</h3>
+      <div id="checkoutItems" style="max-height: 220px; overflow-y: auto; margin-bottom: 16px; display: flex; flex-direction: column; gap: 10px"></div>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 20px">
+        <span data-vi="Tổng cộng:" data-en="Total:">Tổng cộng:</span>
+        <strong id="checkoutTotal" style="color: var(--orange); font-size: 1.2rem">0đ</strong>
+      </div>
+      <form id="checkoutForm" onsubmit="placeOrder(event)" style="display: flex; flex-direction: column; gap: 12px">
+        <input type="text" placeholder="Họ và tên" class="auth-input" required />
+        <input type="tel" placeholder="Số điện thoại" class="auth-input" required />
+        <input type="text" placeholder="Địa chỉ giao hàng" class="auth-input" required />
+        <button type="submit" class="btn-primary" style="width: 100%" data-vi="Xác nhận đặt hàng" data-en="Place Order">Xác nhận đặt hàng</button>
+      </form>
+    </div>
 
     <!-- PRODUCT MODAL -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
@@ -443,18 +464,57 @@
     <div class="modal-overlay" id="profileOverlay" onclick="closeProfile()"></div>
     <div class="profile-modal" id="profileModal">
       <button class="modal-close" onclick="closeProfile()">✕</button>
-      <div class="profile-tabs">
-        <button class="profile-tab active" onclick="showProfileTab('info')">Thông tin cá nhân</button>
-        <button class="profile-tab" onclick="showProfileTab('orders')">Đơn hàng của tôi</button>
+
+      <!-- SIDEBAR TRÁI -->
+      <div class="profile-sidebar">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <div class="avatar" id="sidebarAvatar" style="width: 48px; height: 48px; font-size: 1.3rem">A</div>
+          <div>
+            <strong id="sidebarName" style="font-size: 0.95rem">User</strong>
+            <p id="sidebarEmail" style="font-size: 0.75rem; color: var(--text-muted); margin: 2px 0 0"></p>
+          </div>
+        </div>
+        <nav class="profile-nav">
+          <button class="profile-nav-btn active" onclick="showProfileTab('info')">👤 Tài khoản của tôi</button>
+          <button class="profile-nav-btn" onclick="showOrderTab('all')">📦 Đơn hàng của tôi</button>
+        </nav>
       </div>
-      <div id="infoTab" class="profile-content">
-        <input type="text" placeholder="Họ và tên" class="auth-input" />
-        <input type="text" placeholder="Số điện thoại" class="auth-input" />
-        <input type="text" placeholder="Địa chỉ giao hàng" class="auth-input" />
-        <button class="btn-primary" style="width: 100%">Cập nhật thông tin</button>
-      </div>
-      <div id="ordersTab" class="profile-content" style="display: none">
-        <p>Bạn chưa có đơn hàng nào.</p>
+
+      <!-- NỘI DUNG PHẢI -->
+      <div class="profile-content">
+        <!-- Tab thông tin -->
+        <div id="infoTab">
+          <h3 class="profile-tab-title">Thông tin cá nhân</h3>
+          <input type="text" placeholder="Họ và tên" class="auth-input" style="margin-bottom: 12px" />
+          <input type="text" placeholder="Số điện thoại" class="auth-input" style="margin-bottom: 12px" />
+          <input type="text" placeholder="Địa chỉ giao hàng" class="auth-input" style="margin-bottom: 16px" />
+          <button class="btn-primary" style="width: 100%">Cập nhật thông tin</button>
+        </div>
+
+        <!-- Tab đơn hàng -->
+        <div id="ordersTab" style="display: none">
+          <h3 class="profile-tab-title">Đơn hàng của tôi</h3>
+
+          <!-- Tabs trạng thái -->
+          <div style="display: flex; gap: 0; border-bottom: 2px solid #eee; margin-bottom: 16px; overflow-x: auto; white-space: nowrap">
+            <button class="order-status-btn active" data-s="all" onclick="showOrderTab('all')">Tất cả</button>
+            <button class="order-status-btn" data-s="pending" onclick="showOrderTab('pending')">Chờ thanh toán</button>
+            <button class="order-status-btn" data-s="shipping" onclick="showOrderTab('shipping')">Vận chuyển</button>
+            <button class="order-status-btn" data-s="delivering" onclick="showOrderTab('delivering')">Chờ giao hàng</button>
+            <button class="order-status-btn" data-s="done" onclick="showOrderTab('done')">Hoàn thành</button>
+            <button class="order-status-btn" data-s="cancel" onclick="showOrderTab('cancel')">Đã hủy</button>
+            <button class="order-status-btn" data-s="return" onclick="showOrderTab('return')">Trả hàng/Hoàn tiền</button>
+          </div>
+
+          <!-- Tìm kiếm -->
+          <div style="display: flex; align-items: center; gap: 10px; background: var(--bg3); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px">
+            <span style="color: var(--text-muted)">🔍</span>
+            <input id="orderSearch" type="text" placeholder="Tìm theo tên Shop, ID đơn hàng hoặc Tên Sản phẩm" style="border: none; background: transparent; outline: none; font-size: 0.85rem; width: 100%; color: var(--text)" oninput="renderOrders()" />
+          </div>
+
+          <!-- Danh sách -->
+          <div id="orderList" style="display: flex; flex-direction: column; gap: 12px; min-height: 200px"></div>
+        </div>
       </div>
     </div>
 
@@ -475,6 +535,42 @@
         el.src = "https://via.placeholder.com/" + size + "/1C1C1E/FF4F00?text=" + text;
       }
 
+      function openProfile(tab) {
+        // Điền thông tin vào sidebar
+        const raw = localStorage.getItem("adidas_current_user");
+        if (raw) {
+          const u = JSON.parse(raw);
+          const name = u.name || u.email || "User";
+          document.getElementById("sidebarAvatar").textContent = name.charAt(0).toUpperCase();
+          document.getElementById("sidebarName").textContent = name;
+          document.getElementById("sidebarEmail").textContent = u.email || "";
+        }
+        document.getElementById("profileOverlay").classList.add("active");
+        document.getElementById("profileModal").classList.add("active");
+        document.body.style.overflow = "hidden";
+        document.getElementById("userMenu").style.display = "none";
+        if (tab === "orders") showOrderTab("all");
+        else showProfileTab("info");
+      }
+      window.openProfile = openProfile;
+
+      window.showProfileTab = function (tab) {
+        document.getElementById("infoTab").style.display = "block";
+        document.getElementById("ordersTab").style.display = "none";
+        document.querySelectorAll(".profile-nav-btn").forEach((b) => b.classList.remove("active"));
+        document.querySelector('.profile-nav-btn[onclick*="info"]').classList.add("active");
+      };
+
+      window.showOrderTab = function (status) {
+        document.getElementById("infoTab").style.display = "none";
+        document.getElementById("ordersTab").style.display = "block";
+        document.querySelectorAll(".profile-nav-btn").forEach((b) => b.classList.remove("active"));
+        document.querySelector('.profile-nav-btn[onclick*="showOrderTab"]').classList.add("active");
+        document.querySelectorAll(".order-status-btn").forEach((b) => b.classList.remove("active"));
+        document.querySelector(`.order-status-btn[data-s="${status}"]`)?.classList.add("active");
+        window._currentOrderTab = status;
+        renderOrders();
+      };
       function initUserState() {
         try {
           const raw = localStorage.getItem("adidas_current_user");
@@ -499,6 +595,11 @@
       }
 
       function logoutUser() {
+        const raw = localStorage.getItem("adidas_current_user");
+        if (raw) {
+          const uid = JSON.parse(raw).uid;
+          localStorage.removeItem(`bs_cart_${uid}`); // xóa giỏ hàng khi logout
+        }
         localStorage.removeItem("adidas_current_user");
         location.reload();
       }
@@ -511,6 +612,8 @@
 
       initUserState();
     </script>
-    <script src="products.js"></script>
+    <script src="./js/products_data.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/ui.js"></script>
   </body>
 </html>
