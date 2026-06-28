@@ -75,6 +75,7 @@
                 <hr style="border: none; border-top: 1px solid #eee; margin: 8px 0" />
                 <button class="user-menu-item" onclick="openProfile()">👤 Tài khoản của tôi</button>
                 <button class="user-menu-item" onclick="openProfile('orders')">📦 Đơn hàng của tôi</button>
+                <button class="user-menu-item" id="adminMenuBtn" style="display: none" onclick="openAdmin()">🛡️ Quản trị</button>
                 <hr style="border: none; border-top: 1px solid #eee; margin: 8px 0" />
                 <button class="user-menu-item" onclick="logoutUser()">🚪 Đăng xuất</button>
               </div>
@@ -109,7 +110,7 @@
       <div class="hero-visual">
         <div class="hero-shoe-wrap">
           <div class="hero-shoe-glow"></div>
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Featured shoe" class="hero-shoe" onerror="imgErr(this, '500x400', 'BOOST+SPORT')" />
+          <img src="https://giaycaosmartmen.com/wp-content/uploads/2020/09/giay-sneaker-la-gi.jpg" alt="Featured shoe" class="hero-shoe" onerror="imgErr(this, '500x400', 'BOOST+SPORT')" />
         </div>
       </div>
       <div class="hero-scroll">
@@ -143,28 +144,28 @@
         </div>
         <div class="cat-grid">
           <div class="cat-card cat-large" onclick="filterCategory('giay')">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Giày" onerror="imgErr(this, '600x400', 'GIÀY')" />
+            <img src="https://cdn.hstatic.net/products/1000230642/bsm004700xnh__4__7b78472134e2476381503b808f3e16ee_grande.jpg" alt="Giày" onerror="imgErr(this, '600x400', 'GIÀY')" />
             <div class="cat-overlay">
               <h3 data-vi="Giày thể thao" data-en="Sports Shoes">Giày thể thao</h3>
               <p>200+ sản phẩm</p>
             </div>
           </div>
           <div class="cat-card" onclick="filterCategory('dep')">
-            <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&q=80" alt="Dép" onerror="imgErr(this, '400x300', 'DÉP')" />
+            <img src="https://cdn.shopvnb.com/uploads/images/bai_viet/dep-the-thao-1-1723066645.webp" alt="Dép" onerror="imgErr(this, '400x300', 'DÉP')" />
             <div class="cat-overlay">
               <h3 data-vi="Dép thể thao" data-en="Sandals">Dép thể thao</h3>
               <p>80+ sản phẩm</p>
             </div>
           </div>
           <div class="cat-card" onclick="filterCategory('quan-ao')">
-            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80" alt="Quần áo" onerror="imgErr(this, '400x300', 'QUẦN+ÁO')" />
+            <img src="https://nhatminhsports.vn/wp-content/uploads/2025/04/UN465-01.jpg" alt="Quần áo" onerror="imgErr(this, '400x300', 'QUẦN+ÁO')" />
             <div class="cat-overlay">
               <h3 data-vi="Quần áo" data-en="Apparel">Quần áo</h3>
               <p>150+ sản phẩm</p>
             </div>
           </div>
           <div class="cat-card" onclick="filterCategory('phu-kien')">
-            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80" alt="Phụ kiện" onerror="imgErr(this, '400x300', 'PHỤ+KIỆN')" />
+            <img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/ef83354f-87cf-4602-8f48-13e09e6ffebe/U+NK+DF+CLUB+CAP+U+AB+FL+P.png" alt="Phụ kiện" onerror="imgErr(this, '400x300', 'PHỤ+KIỆN')" />
             <div class="cat-overlay">
               <h3 data-vi="Phụ kiện" data-en="Accessories">Phụ kiện</h3>
               <p>70+ sản phẩm</p>
@@ -378,10 +379,34 @@
             <a href="#" class="logo">BOOST<span>SPORT</span></a>
             <p data-vi="Chuyên cung cấp sản phẩm thể thao chính hãng, chất lượng cao." data-en="Premium authentic sportswear from top brands worldwide.">Chuyên cung cấp sản phẩm thể thao chính hãng, chất lượng cao.</p>
             <div class="social-links">
-              <a href="#" class="social-link">FB</a>
-              <a href="#" class="social-link">IG</a>
-              <a href="#" class="social-link">TT</a>
-              <a href="#" class="social-link">YT</a>
+              <a href="https://www.facebook.com/" class="social-link" title="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com" class="social-link" title="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.tiktok.com" class="social-link" title="TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.youtube.com" class="social-link" title="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
           <div class="footer-col">
@@ -437,20 +462,380 @@
 
     <!-- CHECKOUT MODAL -->
     <div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
-    <div class="login-modal" id="checkoutModal">
-      <button class="modal-close" onclick="closeCheckout()">✕</button>
-      <h3 style="font-family: &quot;Oswald&quot;, sans-serif; font-size: 1.4rem; margin-bottom: 20px" data-vi="Thanh toán đơn hàng" data-en="Checkout">Thanh toán đơn hàng</h3>
-      <div id="checkoutItems" style="max-height: 220px; overflow-y: auto; margin-bottom: 16px; display: flex; flex-direction: column; gap: 10px"></div>
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 20px">
-        <span data-vi="Tổng cộng:" data-en="Total:">Tổng cộng:</span>
-        <strong id="checkoutTotal" style="color: var(--orange); font-size: 1.2rem">0đ</strong>
+    <div
+      id="checkoutModal"
+      style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.92);
+        width: 96%;
+        max-width: 1020px;
+        max-height: 92vh;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+        z-index: 3001;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 32px 80px rgba(0, 0, 0, 0.18);
+      "
+    >
+      <!-- HEADER -->
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 32px; background: var(--bg3); border-bottom: 1px solid var(--border); flex-shrink: 0">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <div style="width: 40px; height: 40px; background: var(--orange); border-radius: 10px; display: flex; align-items: center; justify-content: center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-family: &quot;Oswald&quot;, sans-serif; font-size: 1.3rem; margin: 0; letter-spacing: 0.5px">THANH TOÁN ĐƠN HÀNG</h3>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 2px 0 0">Boost Sport – Thể thao đỉnh cao</p>
+          </div>
+        </div>
+        <button
+          onclick="closeCheckout()"
+          style="width: 36px; height: 36px; background: var(--bg4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--text-muted); transition: 0.2s"
+          onmouseover="
+            this.style.background = 'var(--orange)';
+            this.style.color = '#fff';
+          "
+          onmouseout="
+            this.style.background = 'var(--bg4)';
+            this.style.color = 'var(--text-muted)';
+          "
+        >
+          ✕
+        </button>
       </div>
-      <form id="checkoutForm" onsubmit="placeOrder(event)" style="display: flex; flex-direction: column; gap: 12px">
-        <input type="text" placeholder="Họ và tên" class="auth-input" required />
-        <input type="tel" placeholder="Số điện thoại" class="auth-input" required />
-        <input type="text" placeholder="Địa chỉ giao hàng" class="auth-input" required />
-        <button type="submit" class="btn-primary" style="width: 100%" data-vi="Xác nhận đặt hàng" data-en="Place Order">Xác nhận đặt hàng</button>
-      </form>
+
+      <!-- BODY: 2 cột -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; flex: 1; overflow: hidden; min-height: 0">
+        <!-- CỘT TRÁI: Đơn hàng + Tổng tiền -->
+        <div style="background: var(--bg3); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden">
+          <div style="padding: 24px 28px 16px; flex-shrink: 0">
+            <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; color: var(--orange); text-transform: uppercase; margin-bottom: 14px">Sản phẩm đặt mua</p>
+          </div>
+          <!-- Danh sách sản phẩm -->
+          <div id="checkoutItems" style="flex: 1; overflow-y: auto; padding: 0 28px 16px; display: flex; flex-direction: column; gap: 12px"></div>
+
+          <!-- Voucher -->
+          <div style="padding: 16px 28px; border-top: 1px solid var(--border); flex-shrink: 0">
+            <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px">Mã giảm giá</p>
+            <div style="display: flex; gap: 8px">
+              <div style="flex: 1; position: relative">
+                <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.85rem">🏷️</span>
+                <input type="text" id="ck-voucher" placeholder="Nhập voucher..." class="auth-input" style="padding-left: 36px; margin-bottom: 0; text-transform: uppercase; font-weight: 600; font-size: 0.85rem" oninput="this.value = this.value.toUpperCase()" />
+              </div>
+              <button
+                type="button"
+                onclick="applyVoucher()"
+                style="padding: 0 20px; border-radius: 8px; border: 2px solid var(--orange); color: var(--orange); background: transparent; font-weight: 700; font-size: 0.82rem; cursor: pointer; white-space: nowrap; transition: 0.2s; flex-shrink: 0"
+                onmouseover="
+                  this.style.background = 'var(--orange)';
+                  this.style.color = '#fff';
+                "
+                onmouseout="
+                  this.style.background = 'transparent';
+                  this.style.color = 'var(--orange)';
+                "
+              >
+                Áp dụng
+              </button>
+            </div>
+            <div id="voucherMsg" style="font-size: 0.78rem; margin-top: 8px; display: none"></div>
+          </div>
+
+          <!-- Tổng tiền -->
+          <div style="padding: 18px 28px 24px; border-top: 1px solid var(--border); flex-shrink: 0; background: var(--bg2)">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px">
+              <span style="color: var(--text-muted)">Tạm tính</span>
+              <span id="checkoutSubtotal" style="font-weight: 500">0đ</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px">
+              <span style="color: var(--text-muted)">Phí vận chuyển</span>
+              <span style="color: #10b981; font-weight: 600">Miễn phí</span>
+            </div>
+            <div id="checkoutDiscountRow" style="display: none; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px">
+              <span style="color: #10b981">🎉 Giảm giá (<span id="checkoutVoucherCode" style="font-weight: 700"></span>)</span>
+              <span style="color: #10b981; font-weight: 600" id="checkoutDiscount">-0đ</span>
+            </div>
+            <div style="height: 1px; background: var(--border); margin: 12px 0"></div>
+            <div style="display: flex; justify-content: space-between; align-items: center">
+              <span style="font-family: &quot;Oswald&quot;, sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.5px">TỔNG CỘNG</span>
+              <strong id="checkoutTotal" style="font-family: &quot;Oswald&quot;, sans-serif; font-size: 1.6rem; color: var(--orange)">0đ</strong>
+            </div>
+            <!-- Bảo đảm -->
+            <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap">
+              <div style="display: flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--text-muted)"><span style="color: #10b981">🔒</span> Thanh toán bảo mật</div>
+              <div style="display: flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--text-muted)"><span>↩️</span> Đổi trả 30 ngày</div>
+              <div style="display: flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--text-muted)"><span>🚚</span> Giao nhanh 2–4 ngày</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CỘT PHẢI: Form + Thanh toán -->
+        <div style="overflow-y: auto; display: flex; flex-direction: column">
+          <form id="checkoutForm" onsubmit="placeOrder(event)" style="flex: 1; display: flex; flex-direction: column; gap: 0">
+            <!-- Thông tin giao hàng -->
+            <div style="padding: 24px 28px 20px; border-bottom: 1px solid var(--border)">
+              <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; color: var(--orange); text-transform: uppercase; margin-bottom: 16px">Thông tin giao hàng</p>
+              <div style="display: flex; flex-direction: column; gap: 10px">
+                <div style="position: relative">
+                  <span style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); font-size: 0.9rem; pointer-events: none">👤</span>
+                  <input type="text" id="ck-name" placeholder="Họ và tên người nhận" class="auth-input" style="padding-left: 40px; margin-bottom: 0" required />
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+                  <div style="position: relative">
+                    <span style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); font-size: 0.9rem; pointer-events: none">📱</span>
+                    <input type="tel" id="ck-phone" placeholder="Số điện thoại" class="auth-input" style="padding-left: 40px; margin-bottom: 0" maxlength="10" required oninput="this.value = this.value.replace(/\D/g, '')" />
+                  </div>
+                  <div style="position: relative">
+                    <span style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); font-size: 0.9rem; pointer-events: none">✉️</span>
+                    <input type="email" id="ck-email" placeholder="Email (@gmail.com)" class="auth-input" style="padding-left: 40px; margin-bottom: 0" required />
+                  </div>
+                </div>
+                <div style="position: relative">
+                  <span style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); font-size: 0.9rem; pointer-events: none">📍</span>
+                  <input type="text" id="ck-address" placeholder="Địa chỉ giao hàng (số nhà, phố, quận/huyện, tỉnh/TP)" class="auth-input" style="padding-left: 40px; margin-bottom: 0" required />
+                </div>
+              </div>
+            </div>
+
+            <!-- Phương thức thanh toán -->
+            <div style="padding: 20px 28px; border-bottom: 1px solid var(--border)">
+              <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; color: var(--orange); text-transform: uppercase; margin-bottom: 14px">Phương thức thanh toán</p>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px">
+                <!-- COD -->
+                <label class="payment-method-option" style="padding: 10px 12px; border-radius: 10px">
+                  <input type="radio" name="paymentMethod" value="cod" checked onchange="togglePaymentFields()" />
+                  <span style="font-size: 1.2rem; flex-shrink: 0">📦</span>
+                  <span class="payment-method-text">
+                    <strong style="font-size: 0.8rem">Tiền mặt (COD)</strong>
+                    <small>Thanh toán khi nhận</small>
+                  </span>
+                </label>
+                <!-- CARD -->
+                <label class="payment-method-option" style="padding: 10px 12px; border-radius: 10px">
+                  <input type="radio" name="paymentMethod" value="card" onchange="togglePaymentFields()" />
+                  <span style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1f71, #2c3e9e); border-radius: 6px; padding: 3px 7px; flex-shrink: 0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="14" viewBox="0 0 24 16">
+                      <rect width="24" height="16" rx="2" fill="none" />
+                      <rect y="3" width="24" height="4" fill="#fff" opacity="0.4" />
+                      <rect x="14" y="10" width="7" height="3" rx="1" fill="#FFD700" />
+                    </svg>
+                  </span>
+                  <span class="payment-method-text">
+                    <strong style="font-size: 0.8rem">Thẻ quốc tế</strong>
+                    <small>Visa / MC / JCB</small>
+                  </span>
+                </label>
+                <!-- MB BANK -->
+                <label class="payment-method-option" style="padding: 10px 12px; border-radius: 10px">
+                  <input type="radio" name="paymentMethod" value="mbbank" onchange="togglePaymentFields()" />
+                  <span style="display: flex; align-items: center; justify-content: center; background: #003087; border-radius: 6px; padding: 3px 8px; min-width: 44px; flex-shrink: 0">
+                    <svg width="30" height="14" viewBox="0 0 60 20"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-size="13" font-family="Arial" font-weight="bold">MB</text></svg>
+                  </span>
+                  <span class="payment-method-text">
+                    <strong style="font-size: 0.8rem">MB Bank</strong>
+                    <small>Chuyển khoản / QR</small>
+                  </span>
+                </label>
+                <!-- MOMO -->
+                <label class="payment-method-option" style="padding: 10px 12px; border-radius: 10px">
+                  <input type="radio" name="paymentMethod" value="momo" onchange="togglePaymentFields()" />
+                  <span style="display: flex; align-items: center; justify-content: center; background: #ae2070; border-radius: 6px; padding: 3px 8px; min-width: 44px; flex-shrink: 0">
+                    <svg width="36" height="14" viewBox="0 0 70 20"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-size="12" font-family="Arial" font-weight="bold">MoMo</text></svg>
+                  </span>
+                  <span class="payment-method-text">
+                    <strong style="font-size: 0.8rem">Ví MoMo</strong>
+                    <small>Ví điện tử MoMo</small>
+                  </span>
+                </label>
+                <!-- VNPAY -->
+                <label class="payment-method-option" style="padding: 10px 12px; border-radius: 10px; grid-column: 1/-1">
+                  <input type="radio" name="paymentMethod" value="vnpay" onchange="togglePaymentFields()" />
+                  <span style="display: flex; align-items: center; justify-content: center; background: #005bac; border-radius: 6px; padding: 3px 8px; min-width: 56px; flex-shrink: 0">
+                    <svg width="44" height="14" viewBox="0 0 80 20"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-size="11" font-family="Arial" font-weight="bold">VNPAY</text></svg>
+                  </span>
+                  <span class="payment-method-text">
+                    <strong style="font-size: 0.8rem">VNPAY QR</strong>
+                    <small>Tất cả ngân hàng VN – quét mã VietQR</small>
+                  </span>
+                </label>
+              </div>
+
+              <!-- Card fields -->
+              <div id="cardFields" style="display: none; flex-direction: column; gap: 10px; background: linear-gradient(135deg, #1a1f7108, #2c3e9e08); border: 1px solid #2c3e9e30; border-radius: 12px; padding: 14px">
+                <p style="font-size: 0.75rem; font-weight: 600; color: #1a1f71; margin: 0 0 6px">💳 Thông tin thẻ thanh toán</p>
+                <div style="position: relative">
+                  <input
+                    type="text"
+                    id="ck-cardNumber"
+                    placeholder="Số thẻ: 1234 5678 9012 3456"
+                    class="auth-input"
+                    style="margin-bottom: 0; letter-spacing: 2px"
+                    maxlength="19"
+                    oninput="
+                      this.value = this.value
+                        .replace(/\D/g, '')
+                        .replace(/(.{4})/g, '$1 ')
+                        .trim()
+                    "
+                  />
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+                  <input
+                    type="text"
+                    id="ck-cardExpiry"
+                    placeholder="MM/YY"
+                    class="auth-input"
+                    style="margin-bottom: 0; text-align: center"
+                    maxlength="5"
+                    oninput="
+                      this.value = this.value
+                        .replace(/\D/g, '')
+                        .replace(/^(\d{2})(\d)/, '$1/$2')
+                        .slice(0, 5)
+                    "
+                  />
+                  <input type="text" id="ck-cardCvv" placeholder="CVV" class="auth-input" style="margin-bottom: 0; text-align: center; letter-spacing: 4px" maxlength="4" oninput="this.value = this.value.replace(/\D/g, '')" />
+                </div>
+                <p style="font-size: 0.72rem; color: var(--text-muted); margin: 0">🔒 Thông tin thẻ được mã hóa SSL 256-bit</p>
+              </div>
+
+              <!-- MB Bank info -->
+              <div id="mbbankFields" style="display: none; flex-direction: column; gap: 0; border: 2px solid #003087; border-radius: 12px; overflow: hidden">
+                <div style="background: #003087; padding: 10px 16px; display: flex; align-items: center; gap: 10px">
+                  <svg width="28" height="28" viewBox="0 0 60 60">
+                    <rect width="60" height="60" rx="8" fill="#fff" />
+                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#003087" font-size="20" font-family="Arial" font-weight="bold">MB</text>
+                  </svg>
+                  <div>
+                    <p style="color: #fff; font-weight: 700; font-size: 0.85rem; margin: 0">Military Commercial Joint Stock Bank</p>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.72rem; margin: 0">Ngân hàng TMCP Quân đội (MB Bank)</p>
+                  </div>
+                </div>
+                <div style="padding: 14px 16px; background: #f0f4ff; display: flex; flex-direction: column; gap: 8px">
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.84rem">
+                    <span style="color: #555">Số tài khoản</span>
+                    <strong style="font-family: monospace; font-size: 0.95rem; letter-spacing: 2px; color: #003087">0123 4567 8901</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.84rem">
+                    <span style="color: #555">Chủ tài khoản</span>
+                    <strong>BOOST SPORT</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.84rem">
+                    <span style="color: #555">Chi nhánh</span>
+                    <span>MB Bank – Hà Đông, Hà Nội</span>
+                  </div>
+                  <div style="background: #fff3cd; border-radius: 6px; padding: 8px 12px; margin-top: 4px">
+                    <p style="font-size: 0.78rem; font-weight: 600; color: #856404; margin: 0">📝 Nội dung chuyển khoản: <span style="color: #003087">BS + [Số điện thoại]</span></p>
+                    <p style="font-size: 0.72rem; color: #856404; margin: 4px 0 0">Ví dụ: BS0912345678</p>
+                  </div>
+                  <p style="font-size: 0.72rem; color: #555; margin: 0; border-top: 1px solid #dde; padding-top: 8px">⏱ Đơn hàng được xác nhận trong vòng 30 phút sau khi chuyển thành công.</p>
+                </div>
+              </div>
+
+              <!-- MoMo info -->
+              <div id="momoFields" style="display: none; flex-direction: column; gap: 0; border: 2px solid #ae2070; border-radius: 12px; overflow: hidden">
+                <div style="background: linear-gradient(135deg, #ae2070, #d63880); padding: 10px 16px; display: flex; align-items: center; gap: 12px">
+                  <div style="width: 36px; height: 36px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem; color: #ae2070; letter-spacing: -0.5px; flex-shrink: 0">MoMo</div>
+                  <div>
+                    <p style="color: #fff; font-weight: 700; font-size: 0.85rem; margin: 0">Ví điện tử MoMo</p>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.72rem; margin: 0">M_Service – Thanh toán nhanh, an toàn</p>
+                  </div>
+                </div>
+                <div style="padding: 14px 16px; background: #fdf0f6; display: flex; flex-direction: column; gap: 8px">
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.84rem">
+                    <span style="color: #555">Số điện thoại MoMo</span>
+                    <strong style="font-family: monospace; font-size: 0.95rem; letter-spacing: 1px; color: #ae2070">0987 654 321</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.84rem">
+                    <span style="color: #555">Tên tài khoản</span>
+                    <strong>BOOST SPORT</strong>
+                  </div>
+                  <div style="background: #fff; border: 1px dashed #ae2070; border-radius: 6px; padding: 8px 12px; margin-top: 4px">
+                    <p style="font-size: 0.78rem; font-weight: 600; color: #ae2070; margin: 0">📝 Nội dung: BS + [Số điện thoại của bạn]</p>
+                  </div>
+                  <div style="background: #f8d7ea; border-radius: 6px; padding: 8px 12px">
+                    <p style="font-size: 0.78rem; color: #78174a; margin: 0; font-weight: 600">Hướng dẫn:</p>
+                    <p style="font-size: 0.75rem; color: #78174a; margin: 4px 0 0; line-height: 1.5">Mở app MoMo → Chuyển tiền → Nhập số điện thoại → Nhập nội dung → Xác nhận</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VNPAY info -->
+              <div id="vnpayFields" style="display: none; flex-direction: column; gap: 0; border: 2px solid #005bac; border-radius: 12px; overflow: hidden">
+                <div style="background: linear-gradient(135deg, #005bac, #0072d6); padding: 10px 16px; display: flex; align-items: center; gap: 12px">
+                  <div style="background: #fff; border-radius: 6px; padding: 3px 8px; font-weight: 900; font-size: 0.75rem; color: #005bac; letter-spacing: 1px; flex-shrink: 0">VNPAY</div>
+                  <div>
+                    <p style="color: #fff; font-weight: 700; font-size: 0.85rem; margin: 0">VNPAY – VietQR</p>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.72rem; margin: 0">Hỗ trợ tất cả ngân hàng tại Việt Nam</p>
+                  </div>
+                </div>
+                <div style="padding: 14px 16px; background: #f0f5ff; display: flex; gap: 16px; align-items: flex-start">
+                  <!-- QR code -->
+                  <div style="background: #fff; border-radius: 10px; padding: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); flex-shrink: 0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                      <rect width="100" height="100" fill="#fff" />
+                      <!-- corners -->
+                      <rect x="5" y="5" width="32" height="32" rx="3" fill="none" stroke="#005bac" stroke-width="3.5" />
+                      <rect x="11" y="11" width="20" height="20" rx="1" fill="#005bac" />
+                      <rect x="63" y="5" width="32" height="32" rx="3" fill="none" stroke="#005bac" stroke-width="3.5" />
+                      <rect x="69" y="11" width="20" height="20" rx="1" fill="#005bac" />
+                      <rect x="5" y="63" width="32" height="32" rx="3" fill="none" stroke="#005bac" stroke-width="3.5" />
+                      <rect x="11" y="69" width="20" height="20" rx="1" fill="#005bac" />
+                      <!-- data dots -->
+                      <rect x="44" y="44" width="5" height="5" fill="#005bac" />
+                      <rect x="52" y="44" width="5" height="5" fill="#005bac" />
+                      <rect x="60" y="44" width="5" height="5" fill="#005bac" />
+                      <rect x="44" y="52" width="5" height="5" fill="#005bac" />
+                      <rect x="60" y="52" width="5" height="5" fill="#005bac" />
+                      <rect x="52" y="60" width="5" height="5" fill="#005bac" />
+                      <rect x="68" y="60" width="5" height="5" fill="#005bac" />
+                      <rect x="44" y="68" width="5" height="5" fill="#005bac" />
+                      <rect x="44" y="76" width="5" height="5" fill="#005bac" />
+                      <rect x="60" y="68" width="13" height="5" fill="#005bac" />
+                      <rect x="76" y="68" width="5" height="13" fill="#005bac" />
+                      <!-- VietQR center logo -->
+                      <rect x="42" y="42" width="16" height="16" rx="2" fill="#fff" stroke="#005bac" stroke-width="1.5" />
+                      <text x="50" y="53" dominant-baseline="middle" text-anchor="middle" fill="#005bac" font-size="6" font-family="Arial" font-weight="bold">QR</text>
+                    </svg>
+                    <p style="text-align: center; font-size: 0.65rem; color: #005bac; margin: 5px 0 0; font-weight: 600">VietQR</p>
+                  </div>
+                  <div style="flex: 1; display: flex; flex-direction: column; gap: 7px">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: #003a7a; margin: 0">Quét mã để thanh toán</p>
+                    <p style="font-size: 0.75rem; color: #555; margin: 0; line-height: 1.5">Sử dụng app ngân hàng bất kỳ hoặc app VNPAY để quét mã QR VietQR.</p>
+                    <div style="background: #e8f0fe; border-radius: 6px; padding: 8px">
+                      <p style="font-size: 0.72rem; color: #003a7a; margin: 0; font-weight: 600">Ngân hàng hỗ trợ:</p>
+                      <p style="font-size: 0.72rem; color: #555; margin: 3px 0 0; line-height: 1.4">Vietcombank, VietinBank, BIDV, Agribank, Techcombank, MB Bank, ACB, TPBank, VPBank, Sacombank và 40+ ngân hàng khác.</p>
+                    </div>
+                    <p style="font-size: 0.7rem; color: #555; margin: 0">⚡ Giao dịch xác nhận tức thì</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nút đặt hàng -->
+            <div style="padding: 20px 28px; flex-shrink: 0; background: var(--bg3); border-top: 1px solid var(--border); margin-top: auto">
+              <button type="submit" class="btn-primary" style="width: 100%; padding: 16px; font-size: 1rem; font-weight: 700; letter-spacing: 1px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 10px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                XÁC NHẬN ĐẶT HÀNG
+              </button>
+              <p style="text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: 10px 0 0">Bằng cách đặt hàng, bạn đồng ý với <u style="cursor: pointer">Điều khoản dịch vụ</u> của chúng tôi.</p>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
     <!-- PRODUCT MODAL -->
@@ -485,10 +870,11 @@
         <!-- Tab thông tin -->
         <div id="infoTab">
           <h3 class="profile-tab-title">Thông tin cá nhân</h3>
-          <input type="text" placeholder="Họ và tên" class="auth-input" style="margin-bottom: 12px" />
-          <input type="text" placeholder="Số điện thoại" class="auth-input" style="margin-bottom: 12px" />
-          <input type="text" placeholder="Địa chỉ giao hàng" class="auth-input" style="margin-bottom: 16px" />
-          <button class="btn-primary" style="width: 100%">Cập nhật thông tin</button>
+          <input type="text" id="profileName" placeholder="Họ và tên" class="auth-input" style="margin-bottom: 12px" />
+          <input type="email" id="profileEmail" placeholder="Email" class="auth-input" style="margin-bottom: 12px" readonly style="opacity: 0.6; cursor: not-allowed; margin-bottom: 12px" />
+          <input type="tel" id="profilePhone" placeholder="Số điện thoại (VD: 0912345678)" class="auth-input" maxlength="10" style="margin-bottom: 12px" oninput="this.value = this.value.replace(/\D/g, '')" />
+          <input type="text" id="profileAddress" placeholder="Địa chỉ giao hàng" class="auth-input" style="margin-bottom: 16px" />
+          <button class="btn-primary" style="width: 100%" onclick="saveProfile()">Cập nhật thông tin</button>
         </div>
 
         <!-- Tab đơn hàng -->
@@ -518,12 +904,69 @@
       </div>
     </div>
 
-    <div id="adminPanel" style="display: none; padding: 100px 24px">
-      <div class="container">
-        <h2>Quản trị hệ thống</h2>
-        <div class="admin-grid">
-          <button class="btn-primary">Thêm sản phẩm mới</button>
+    <!-- ADMIN PANEL OVERLAY -->
+    <div class="modal-overlay" id="adminOverlay" onclick="closeAdmin()" style="z-index: 3500"></div>
+    <div
+      id="adminPanel"
+      style="
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        width: 96%;
+        max-width: 1200px;
+        max-height: 94vh;
+        background: var(--bg2);
+        border-radius: 16px;
+        overflow: hidden;
+        z-index: 3600;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: all 0.3s ease;
+      "
+    >
+      <!-- Header -->
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 18px 28px; background: var(--bg3); border-bottom: 1px solid var(--border); flex-shrink: 0">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="font-size: 1.5rem">🛡️</span>
+          <div>
+            <h2 style="font-family: &quot;Oswald&quot;, sans-serif; font-size: 1.4rem; margin: 0">Bảng Quản Trị</h2>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 2px 0 0">Boost Sport Admin Dashboard</p>
+          </div>
         </div>
+        <button onclick="closeAdmin()" style="background: transparent; border: none; font-size: 1.4rem; color: var(--text-muted); cursor: pointer; line-height: 1">✕</button>
+      </div>
+
+      <!-- Stats bar -->
+      <div id="adminStats" style="display: flex; gap: 16px; padding: 16px 28px; background: var(--bg3); border-bottom: 1px solid var(--border); flex-shrink: 0; overflow-x: auto"></div>
+
+      <!-- Toolbar -->
+      <div style="display: flex; gap: 12px; padding: 14px 28px; border-bottom: 1px solid var(--border); flex-shrink: 0; flex-wrap: wrap; align-items: center">
+        <input
+          id="adminSearch"
+          type="text"
+          placeholder="🔍  Tìm tên sản phẩm, khách hàng, mã đơn..."
+          oninput="renderAdminOrders()"
+          style="flex: 1; min-width: 200px; padding: 9px 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 0.85rem; outline: none"
+        />
+        <select id="adminStatusFilter" onchange="renderAdminOrders()" style="padding: 9px 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 0.85rem; outline: none; cursor: pointer">
+          <option value="all">Tất cả trạng thái</option>
+          <option value="pending">Chờ thanh toán</option>
+          <option value="shipping">Đang vận chuyển</option>
+          <option value="delivering">Chờ giao hàng</option>
+          <option value="done">Hoàn thành</option>
+          <option value="cancel">Đã hủy</option>
+          <option value="return">Trả hàng/Hoàn tiền</option>
+        </select>
+        <button onclick="renderAdminOrders()" style="padding: 9px 16px; border-radius: 8px; border: 1px solid var(--orange); color: var(--orange); background: transparent; font-size: 0.82rem; cursor: pointer; font-weight: 600; white-space: nowrap">🔄 Làm mới</button>
+      </div>
+
+      <!-- Table -->
+      <div style="flex: 1; overflow-y: auto; padding: 20px 28px">
+        <div id="adminOrderList"></div>
       </div>
     </div>
 
@@ -552,14 +995,44 @@
         if (tab === "orders") showOrderTab("all");
         else showProfileTab("info");
       }
-      window.openProfile = openProfile;
 
       window.showProfileTab = function (tab) {
-        document.getElementById("infoTab").style.display = "block";
-        document.getElementById("ordersTab").style.display = "none";
-        document.querySelectorAll(".profile-nav-btn").forEach((b) => b.classList.remove("active"));
-        document.querySelector('.profile-nav-btn[onclick*="info"]').classList.add("active");
+        // Điền thông tin vào sidebar
+        const raw = localStorage.getItem("adidas_current_user");
+        if (raw) {
+          const u = JSON.parse(raw);
+          const name = u.name || u.email || "User";
+          document.getElementById("sidebarAvatar").textContent = name.charAt(0).toUpperCase();
+          document.getElementById("sidebarName").textContent = name;
+          document.getElementById("sidebarEmail").textContent = u.email || "";
+        }
+        document.getElementById("profileOverlay").classList.add("active");
+        document.getElementById("profileModal").classList.add("active");
+        document.body.style.overflow = "hidden";
+        document.getElementById("userMenu").style.display = "none";
+        if (tab === "orders") showOrderTab("all");
+        else {
+          document.getElementById("infoTab").style.display = "block";
+          document.getElementById("ordersTab").style.display = "none";
+          document.querySelectorAll(".profile-nav-btn").forEach((b) => b.classList.remove("active"));
+          document.querySelector('.profile-nav-btn[onclick*="info"]').classList.add("active");
+          // Load dữ liệu user vào form
+          const raw2 = localStorage.getItem("adidas_current_user");
+          if (raw2) {
+            const u = JSON.parse(raw2);
+            const saved = JSON.parse(localStorage.getItem("bs_profile_" + u.uid) || "{}");
+            const nameEl = document.getElementById("profileName");
+            const phoneEl = document.getElementById("profilePhone");
+            const addrEl = document.getElementById("profileAddress");
+            const emailEl = document.getElementById("profileEmail");
+            if (nameEl) nameEl.value = u.name || saved.name || "";
+            if (phoneEl) phoneEl.value = saved.phone || "";
+            if (addrEl) addrEl.value = saved.address || "";
+            if (emailEl) emailEl.value = u.email || "";
+          }
+        }
       };
+      window.openProfile = openProfile;
 
       window.showOrderTab = function (status) {
         document.getElementById("infoTab").style.display = "none";
@@ -586,6 +1059,10 @@
           document.getElementById("userInitial2").textContent = initial;
           document.getElementById("userMenuName").textContent = name;
           document.getElementById("userMenuEmail").textContent = user.email || "";
+          // Hiện nút Admin nếu là tài khoản quản trị
+          const ADMIN_EMAILS = ["admin@boostsport.vn", "admin@gmail.com"];
+          const adminBtn = document.getElementById("adminMenuBtn");
+          if (adminBtn && ADMIN_EMAILS.includes(user.email)) adminBtn.style.display = "block";
         } catch (e) {}
       }
 

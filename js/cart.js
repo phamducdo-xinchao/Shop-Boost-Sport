@@ -148,8 +148,16 @@ window.openCheckout = function () {
         )
         .join("");
 
-    const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
-    document.getElementById("checkoutTotal").textContent = fmt(total);
+    // Reset voucher state
+    window._appliedVoucher = null;
+    const voucherInput = document.getElementById("ck-voucher");
+    const voucherMsg = document.getElementById("voucherMsg");
+    const discountRow = document.getElementById("checkoutDiscountRow");
+    if (voucherInput) voucherInput.value = "";
+    if (voucherMsg) { voucherMsg.style.display = "none"; voucherMsg.textContent = ""; }
+    if (discountRow) discountRow.style.display = "none";
+
+    updateCheckoutTotals();
 
     document.getElementById("checkoutOverlay").classList.add("active");
     document.getElementById("checkoutModal").classList.add("active");
@@ -160,8 +168,73 @@ window.closeCheckout = function () {
     document.getElementById("checkoutModal").classList.remove("active");
 };
 
+// ─── PHƯƠNG THỨC THANH TOÁN ──────────────────
+window.togglePaymentFields = function () {
+    const selected = document.querySelector('input[name="paymentMethod"]:checked')?.value;
+    const cardFields = document.getElementById("cardFields");
+    const mbbankFields = document.getElementById("mbbankFields");
+    const momoFields = document.getElementById("momoFields");
+    const vnpayFields = document.getElementById("vnpayFields");
+
+    const isCard = selected === "card";
+    if (cardFields) cardFields.style.display = isCard ? "flex" : "none";
+    if (mbbankFields) mbbankFields.style.display = selected === "mbbank" ? "flex" : "none";
+    if (momoFields) momoFields.style.display = selected === "momo" ? "flex" : "none";
+    if (vnpayFields) vnpayFields.style.display = selected === "vnpay" ? "flex" : "none";
+
+    ["ck-cardNumber", "ck-cardExpiry", "ck-cardCvv"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.required = isCard;
+    });
+};
+
 window.placeOrder = function (event) {
     event.preventDefault();
+
+    const name = document.getElementById("ck-name").value.trim();
+    const phone = document.getElementById("ck-phone").value.trim();
+    const email = document.getElementById("ck-email").value.trim();
+    const address = document.getElementById("ck-address").value.trim();
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || "cod";
+
+    // ── VALIDATE SỐ ĐIỆN THOẠI: bắt đầu bằng 0, đủ 10 chữ số ──
+    const phoneRegex = /^0\d{9}$/;
+    if (!phoneRegex.test(phone)) {
+        showToast("📱 Số điện thoại không hợp lệ! Phải bắt đầu bằng số 0 và có đủ 10 chữ số.", "error");
+        document.getElementById("ck-phone").focus();
+        return;
+    }
+
+    // ── VALIDATE EMAIL: bắt buộc đuôi @gmail.com ──
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!emailRegex.test(email)) {
+        showToast("📧 Email không hợp lệ! Vui lòng dùng email có đuôi @gmail.com.", "error");
+        document.getElementById("ck-email").focus();
+        return;
+    }
+
+    // ── VALIDATE THÔNG TIN THẺ (nếu chọn thanh toán bằng thẻ) ──
+    if (paymentMethod === "card") {
+        const cardNumber = document.getElementById("ck-cardNumber").value.replace(/\s/g, "");
+        const cardExpiry = document.getElementById("ck-cardExpiry").value.trim();
+        const cardCvv = document.getElementById("ck-cardCvv").value.trim();
+
+        if (!/^\d{16}$/.test(cardNumber)) {
+            showToast("💳 Số thẻ không hợp lệ! Vui lòng nhập đủ 16 chữ số.", "error");
+            document.getElementById("ck-cardNumber").focus();
+            return;
+        }
+        if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(cardExpiry)) {
+            showToast("💳 Ngày hết hạn không hợp lệ! Định dạng MM/YY.", "error");
+            document.getElementById("ck-cardExpiry").focus();
+            return;
+        }
+        if (!/^\d{3,4}$/.test(cardCvv)) {
+            showToast("💳 Mã CVV không hợp lệ!", "error");
+            document.getElementById("ck-cardCvv").focus();
+            return;
+        }
+    }
 
     // ── THÊM: lưu đơn hàng vào localStorage ──
     const raw = localStorage.getItem("adidas_current_user");
@@ -169,12 +242,20 @@ window.placeOrder = function (event) {
         const uid = JSON.parse(raw).uid;
         const key = `bs_orders_${uid}`;
         const orders = JSON.parse(localStorage.getItem(key) || "[]");
+        const subtotal = cart.reduce((s, c) => s + c.price * c.qty, 0);
+        const voucher = window._appliedVoucher || null;
+        const discount = voucher ? calcDiscount(voucher, subtotal) : 0;
         orders.unshift({
             id: Date.now(),
-            status: "delivering",   // trạng thái mặc định sau khi đặt
+            status: "delivering",
             items: cart.map(c => ({ ...c })),
-            total: cart.reduce((s, c) => s + c.price * c.qty, 0),
+            subtotal,
+            discount,
+            voucher: voucher ? voucher.code : null,
+            total: subtotal - discount,
             date: new Date().toLocaleDateString("vi-VN"),
+            customer: { name, phone, email, address },
+            paymentMethod,
         });
         localStorage.setItem(key, JSON.stringify(orders));
     }
@@ -186,8 +267,17 @@ window.placeOrder = function (event) {
     closeCheckout();
     closeCart();
     event.target.reset();
+    togglePaymentFields();
+    window._appliedVoucher = null;
+    if (typeof markVoucherUsed === "function") markVoucherUsed();
 
-    showToast("🎉 Đặt hàng thành công! Cảm ơn bạn đã mua sắm.", "success");
+    const toastMessages = {
+        card: "🎉 Thanh toán thẻ thành công! Cảm ơn bạn đã mua sắm.",
+        mbbank: "🏦 Đặt hàng thành công! Vui lòng chuyển khoản MB Bank để xác nhận đơn.",
+        momo: "💜 Đặt hàng thành công! Vui lòng thanh toán qua ví MoMo để xác nhận.",
+        vnpay: "💙 Đặt hàng thành công! Vui lòng thanh toán qua VNPAY để xác nhận.",
+    };
+    showToast(toastMessages[paymentMethod] || "🎉 Đặt hàng thành công! Cảm ơn bạn đã mua sắm.", "success");
 };
 
 // ─── WISHLIST (đơn giản) ─────────────────────
